@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arspace - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="video-container">
+                <video autoplay muted playsinline class="mp4-logo" id="logo-video">
+                    <source src="image/logo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="menu-icon">&#9776;</div> <!-- 汉堡菜单图标 -->
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Arspace App</a></li>
+                    <li><a href="product.html">Install Now</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    
+    <section id="main">
+        <h2>Welcome to Arspace!</h2>
+        <p>Discover and purchase tickets for the hottest events! And connect with others who share your interests and are attending the same events!</p>
+    </section>
+    <section id="products">
+        <h3>Turning every night out into a memorable social experience! </h3>
+        <p>Introducing to Arspace App</p>
+        <div class="product-gallery">
+            <div class="product-item" data-aos="fade-up">
+                <img src="image/1.png" alt="Event 1">
+                <h3>Explore the Hottest Events</h3>
+                <p>Discover the trendiest events nearby, including exclusive collaborations with Vancouver's top nightclubs. Stay in the know and never miss out on the hottest happenings around you.</p>
+            </div>
+            <div class="product-item" data-aos="fade-up">
+                <img src="image/3.png" alt="Event 2">
+                <h3>Seamless Ticketing Experience</h3>
+                <p>Enjoy the latest in ticketing technology. Our streamlined process makes purchasing tickets quick and easy, so you can focus on the fun ahead.</p>
+            </div>
+            <div class="product-item" data-aos="fade-up">
+                <img src="image/5.png" alt="Event 3">
+                <h3>Swipe to Match</h3>
+                <p>Connect with like-minded individuals attending the same events as you. Swipe left or right to find your perfect match and make new friends while enjoying your favorite activities.</p>
+            </div>
+            <div class="product-item" data-aos="fade-up">
+                <img src="image/9.png" alt="Event 3">
+                <h3>Auto-Create Groups or Private Chats</h3>
+                <p>Automatically join group chats with others who have purchased tickets to the same event, or start private conversations to build new connections once you've matched successfully. Socializing has never been easier.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 ARSPACE TECHNOLOGY LTD. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+        document.getElementById('logo-video').addEventListener('ended', function() {
+            this.currentTime = this.duration - 0.1; // 倒数第二帧
+            this.pause();
+        }, false);
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
+    <script>
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('nav').style.transform = this.classList.contains('active') ? 'translateY(0)' : 'translateY(-100%)';
+        });
+    </script>
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const nav = document.querySelector('nav');
+    
+        menuIcon.addEventListener('click', function() {
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            } else {
+                nav.classList.add('active');
+            }
+        });
+    
+        // 点击导航链接时也收起导航栏
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('active');
+            });
+        });
+    </script>
+    
+    
+    
+</body>
+</html>

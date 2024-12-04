@@ -1,0 +1,278 @@
+/* 使用flexbox布局，使footer始终在页面底部 */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 0px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0px;
+}
+
+.video-container {
+    width: 200px; /* 设置视频宽度 */
+    height: 100px; /* 设置视频高度 */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 向左对齐 */
+    padding-left: 20px; /* 增加左侧内边距 */
+}
+
+.mp4-logo {
+    width: 200%;
+    height: 100%;
+    object-fit: cover; /* 确保视频按比例填充容器 */
+    object-position: center; /* 垂直居中 */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+#main {
+    padding: 40px 20px;
+    text-align: center;
+    background: linear-gradient(to bottom right, #fff, #e0e0e0);
+    flex: 1; /* 占据剩余空间 */
+}
+
+#main h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#main p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+#products {
+    padding: 40px 20px; /* 增加文字上方和下方的间距 */
+    text-align: center;
+    background: linear-gradient(to bottom right, #fff, #e0e0e0);
+    flex: 1; /* 占据剩余空间 */
+}
+
+#products h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    padding: 20 20px; /* 添加左内边距 */
+}
+
+#products p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    padding: 20 20px; /* 添加左内边距 */
+}
+
+.product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20 20px; /* 增加左右边距 */
+}
+
+.product-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: calc(50% - 20px); /* 每行两个项目 */
+    min-width: 300px;
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+}
+
+.product-item h3 {
+    margin: 15px;
+    font-size: 1.5em;
+}
+
+.product-item p {
+    margin: 0 15px 15px 15px;
+    font-size: 1em;
+    color: #666;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    background-color: #000;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.app-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.app-links a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.app-links img {
+    width: 150px;
+    height: 69px;
+    transition: transform 0.3s;
+    vertical-align: auto;
+}
+
+.app-links img:hover {
+    transform: scale(1.1);
+}
+
+
+.video-container video {
+    width: 100%; /* 默认为满宽，适用于小屏幕 */
+    height: auto;
+}
+
+@media screen and (min-width: 1024px) {
+    .video-container video {
+        width: 50%; /* 大屏幕上视频宽度减半 */
+        height: auto;
+    }
+}
+
+.header-content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px;
+    background-color: #000; /* 确保导航栏背景颜色 */
+}
+
+.video-container video {
+    width: 200px; /* 调整视频宽度以适应导航栏 */
+    height: auto;
+}
+
+nav {
+    width: 100%; /* 确保导航栏宽度为100% */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+/* 隐藏汉堡菜单图标，桌面视图显示原有导航栏 */
+.menu-icon {
+    display: none;
+}
+
+/* 媒体查询：在移动视图中显示汉堡图标，并调整导航栏样式 */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block; /* 移动视图显示汉堡图标 */
+        font-size: 30px;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 100; /* 确保图标在顶部 */
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        z-index: 90; /* 确保导航栏在图标下面 */
+        display: none; /* 初始隐藏导航栏 */
+    }
+
+    nav.active {
+        display: block; /* 显示导航栏 */
+        transform: translateY(0);
+    }
+
+    nav ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        padding-top: 100px; /* 给顶部留出空间 */
+    }
+
+    nav ul li {
+        padding: 20px;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+    }
+}

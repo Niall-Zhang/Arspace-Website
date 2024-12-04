@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - arspace</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="video-container">
+                <video autoplay muted playsinline class="mp4-logo" id="logo-video">
+                    <source src="image/logo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="menu-icon">&#9776;</div> <!-- 汉堡菜单图标 -->
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Arspace App</a></li>
+                    <li><a href="product.html">Install Now</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="main">
+        <h2>About Us</h2>
+        <p>ARSPACE TECHNOLOGY LTD. is an entertainment and technology company founded in Vancouver. We are dedicated to providing innovative entertainment and technology solutions for young people, enabling them to enjoy life and experience cutting-edge technology.</p>
+        <p>Our mission is to create unique entertainment experiences for the younger generation through advanced technology and creativity. Whether it's machine learning user matching mechanism, virtual reality night club events, or smart entertainment devices, we are constantly exploring and innovating to bring unlimited possibilities to our users.</p>
+        <h2>Are You an Event Holder?</h2>
+        <p>If you are an event holder looking to list your nightclub events on our app or sell tickets through our platform, please contact us via email haochen@arspace.website! We have a sophisticated admin system that allows you to monitor ticket sales trends, manage your events efficiently, and maximize your reach.</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 ARSPACE TECHNOLOGY LTD. All rights reserved.</p>
+    </footer>
+    <script>
+        AOS.init();
+        document.getElementById('logo-video').addEventListener('ended', function() {
+            this.currentTime = this.duration - 0.1; // 倒数第二帧
+            this.pause();
+        }, false);
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
+    <script>
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('nav').style.transform = this.classList.contains('active') ? 'translateY(0)' : 'translateY(-100%)';
+        });
+    </script>
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const nav = document.querySelector('nav');
+    
+        menuIcon.addEventListener('click', function() {
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            } else {
+                nav.classList.add('active');
+            }
+        });
+    
+        // 点击导航链接时也收起导航栏
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
